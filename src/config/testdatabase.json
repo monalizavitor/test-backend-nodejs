@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Planner",
+        "description": "Agenda emcadernada para planejar seu dia/mes/ano.",
+        "price": "R$12,00",
+        "category": "stationery"
+    },
+    {
+        "title": "Mouse",
+        "description": "Mouse óptico.",
+        "price": "R$19,00",
+        "category": "tecnology"
+    },
+    {
+        "title": "Notebook",
+        "description": "16gb de RAM, armazenamento SSD 526gb, placa de video 2gb",
+        "price": "R$3.599,00",
+        "category": "tecnology"
+    }
+]
