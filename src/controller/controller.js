@@ -8,12 +8,14 @@ const createProduct = (req, res) => {
 
     newProduct.save((error) => {
         if (error)
-            res.status(500).send(error)
+            return res.status(500).send(error)
+
+        return res.status(201).send({
+            message: 'Product successfully created! ', newProduct
+        })
+
     })
 
-    res.status(201).send({
-        message: 'Produto criado com sucesso !', newProduct
-    })
 
 }
 
@@ -34,13 +36,14 @@ const getById = (req, res) => {
 
     productCollection.findById(id, (error, product) => {
         if (error)
-            return res.status(404).send({ message: 'Id do produto não foi encontrado!' })
+            return res.status(404).send({ message: 'Product id not found!' })
 
-        return res.status(200).send({ message: 'Produto encontrado!', product })
+        return res.status(200).send({ message: 'Product found successfully! ', product })
 
     })
 
 }
+
 
 const getByCategory = (req, res) => {
 
@@ -50,14 +53,16 @@ const getByCategory = (req, res) => {
         if (error)
             return res.status(500).send(error)
 
-        if (product)
-            return res.status(200).send({ message: 'Category found successfully! ', product })
+        if (product == '')
+            return res.status(404).send({ message: 'Category is not found!' })
 
-        return res.status(404).send({ message: 'Category is not found!' })
+        return res.status(200).send({ message: 'Category found successfully! ', product })
+
 
     })
 
 }
+
 
 const updateProduct = (req, res) => {
 
@@ -72,6 +77,8 @@ const updateProduct = (req, res) => {
         (error, product) => {
             if (error)
                 return res.status(500).send(error)
+            if (!product)
+                return res.status(404).send({ message: 'Product not found!' })
 
             return res.status(200).send({
                 message: 'Successfully edited product! ', product
@@ -82,10 +89,27 @@ const updateProduct = (req, res) => {
 
 }
 
+
+const deleteProduct = (req, res) => {
+
+    const id = req.params.id
+
+    productCollection.findByIdAndDelete(id, (error, product) => {
+        if (error)
+            return res.status(404).send({ message: 'Product id not found!' })
+
+        return res.status(200).send({ message: `Product ${product.title} successfully deleted!` })
+
+    })
+
+}
+
+
 module.exports = {
     createProduct,
     getProducts,
     getById,
     getByCategory,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

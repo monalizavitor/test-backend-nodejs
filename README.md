@@ -1,40 +1,65 @@
-<h1>Backend Analyst Candidate Testing</h1>
+<h1>Backend Test By Monaliza Vitor</h1>
 
-Hello dear developer, in this test we will analyze your general knowledge and even speed of development. Below we will explain everything that will be needed.
-Do not be alarmed, we do not expect everyone to be able to complete all tasks, this test is the same presented for candidates of all experience levels, so do what you can without worry.
+<h2>To execute</h2>
 
-<strong>The challenge</strong>
+1. Clone this repository:
 
-Your challenge is to develop an API, using Node.JS, for a product catalog management application. Thus, you must analyze and convert the user stories below into routes of an application.
- 
-<strong>User stories:</strong>
+`git clone https://github.com/monalizavitor/test-backend-nodejs.git`
 
-- As a user I would like to register a product so that I can have access to the data of this product in the future (Title, description, price, category)
-- I as a user would like to be able to associate and edit a product category;
-- As a user I would like to be able to access the list of all products;
-- As a user I would like to be able to filter products by name or category;
-- I as a user would like to be able to update the product data;
-- I as a user would like to be able to delete a product from my catalog;
- 
-<strong>Instructions</strong>
-- <strong>To start the test, <strong>fork</strong> this repository, create a branch with its full name and then and send us the link to the test performed (link to your repository) . If you just clone the repository you will not be able to push and then it will be more complicated to make the pull request.</strong>
-- The choice of libraries, databases, architecture, etc. is at your discretion.
-- Change the README file explaining what it takes to run your application.
-- Paste the branch name into the GUPY system and indicate the completion of the test
-- If you want you can leave us feedback regarding the test
+2. Download the dependencies and start:
 
- 
-<strong>Our analysis</strong>
-- Knowledge of Javascript, NodeJs, Express will be assessed for this position;
-- We'll look at how you structure the:
-  application layers;
-  outgoing calls,
-  environment variables,
-   cache,
-  unit tests,
-  logs;
-  error handling;
-  documentation.
-- Code organization, module separation, readability and comments.
-- Commit history.
-- The use of MongoDB is a differentiator
+```
+  # API
+  $ npm install || yarn install
+  $ npm start || yarn start
+
+  # CONNECTION WITH DATABASE
+  > MONGODB_URI = MONGODB_URI = mongodb://localhost:27017/productManager
+  
+  
+```
+
+<h2>Routes</h2>
+
+Method | Route |	Description |
+-----| ------- | --------- |
+POST | `localhost:3333/product/create` |	Create a new product.
+GET | `localhost:3333/product/all` |	Returns all products
+GET | `localhost:3333/product/:id` | Returns product from id.
+PUT | `localhost:3333/product/update/:id` |	Update product from id.
+DELETE | `localhost:3333/product/delete/:id` |	Delete a product from id. 
+
+<h3>Data structures</h3>
+
+
+```
+[
+    {
+        "title": "Planner",
+        "description": "Bound planner to organize your day / month / year.",
+        "price": "R$29,00",
+        "category": "stationery"
+    },
+    {
+        "title": "Mouse",
+        "description": "Optical mouse.",
+        "price": "R$19,00",
+        "category": "tecnology"
+    },
+    {
+        "title": "Notebook",
+        "description": "16gb de RAM, storage SSD 526gb, and video card 2gb",
+        "price": "R$3.599,00",
+        "category": "tecnology"
+    }
+]
+```
+
+<h4>Technologies Used</h4>
+
+- [Cors](https://www.npmjs.com/package/cors)
+- [Dotenv-safe](https://www.npmjs.com/package/dotenv)
+- [Express](https://expressjs.com/)
+- [Mongoose](https://mongoosejs.com/docs/)
+- [Node.js](https://nodejs.org/en/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)

@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI = 'mongodb://localhost:27017/productManager'
+const MONGODB_URI = process.env.MONGODB_URI
 
-// process.env.MONGODB_URI ||
-    
 
 const connect = () => {
     mongoose.connect(MONGODB_URI,

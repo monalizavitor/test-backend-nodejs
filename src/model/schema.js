@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-// estruturando o model
+// model structure
 const productSchema = new Schema({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
@@ -32,7 +32,8 @@ const productSchema = new Schema({
 
 })
 
-// atribuindo o schema a uma collection
+// assigning schema to a collection
 const collection = mongoose.model('product', productSchema)
+
 
 module.exports = collection

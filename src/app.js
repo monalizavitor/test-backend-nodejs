@@ -1,5 +1,4 @@
-// require('dotenv-safe').config()
-
+require('dotenv-safe').config()
 
 const express = require('express')
 
@@ -11,12 +10,12 @@ app.use(cors())
 app.use(express.json())
 
 
-//conexão com o mongo
+// connection with mongoDB
 let db = require('./config/database')
 db.connect()
 
 const routes = require('./routes/routes')
-app.use('/', routes)
+app.use('/product', routes)
 
 
 module.exports = app
