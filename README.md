@@ -31,6 +31,7 @@ DELETE | `localhost:3333/product/delete/:id` |	Delete a product from id.
 
 <h3>Data structures</h3>
 
+> <strong>Important:</strong> You must paste one of these models to insert in the body of the [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/download/)  to create the firsts Products.
 
 ```
 [
